@@ -5,9 +5,8 @@ services:
   - type: web
     name: valentine-app
     runtime: node
-    # Pas de buildCommand : Render utilise par défaut "npm install" pour Node
-    startCommand: "node server.js"
-
+    buildCommand: "bash build.sh"
+    startCommand: "npm start"
     envVars:
       - key: NODE_VERSION
         value: 18

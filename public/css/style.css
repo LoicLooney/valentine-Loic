@@ -1,0 +1,292 @@
+/* ============================================
+   Valentine App - Très romantique 💕
+   ============================================ */
+
+:root {
+  --cream: #fff5f8;
+  --blush: #ffd6e0;
+  --pink: #ffb3c6;
+  --rose: #ff85a2;
+  --red: #e6396b;
+  --deep-rose: #c9184a;
+  --text-soft: #8b4a5c;
+  --text-dark: #6d2d3d;
+  --gold: #d4a853;
+  --shadow-soft: rgba(201, 24, 74, 0.15);
+  --shadow-hover: rgba(201, 24, 74, 0.35);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #fff5f8 0%, #ffd6e0 35%, #ffb3c6 70%, #ff9ebb 100%);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Cœurs discrets en fond */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff85a2' opacity='0.12'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 540px;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* ----- Écran question ----- */
+.intro {
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--deep-rose);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Cadre image romantique (teddy + roses) */
+.hero-image-wrap {
+  margin-bottom: 1.5rem;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px var(--shadow-soft), 0 0 0 3px rgba(255, 133, 162, 0.3);
+  background: var(--blush);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero-image {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+#question-screen h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.85rem, 5vw, 2.6rem);
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 20px rgba(255, 182, 198, 0.5);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+  min-height: 120px;
+  width: 100%;
+}
+
+/* ----- Bouton Oui : très romantique ----- */
+#btn-oui {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem 2.4rem;
+  border: 2px solid var(--deep-rose);
+  border-radius: 2.5rem;
+  background: linear-gradient(145deg, var(--rose), var(--red));
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 28px var(--shadow-hover), 0 0 0 0 rgba(233, 57, 107, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transform-origin: center center;
+}
+
+#btn-oui:hover {
+  background: linear-gradient(145deg, var(--red), var(--deep-rose));
+  box-shadow: 0 8px 36px var(--shadow-hover), 0 0 30px rgba(233, 57, 107, 0.3);
+  transform: scale(1.02);
+}
+
+#btn-oui:active {
+  opacity: 0.95;
+}
+
+/* ----- Bouton Non ----- */
+#btn-non {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--pink);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-soft);
+  cursor: pointer;
+  position: absolute;
+  transition: left 0.2s ease-out, top 0.2s ease-out, color 0.2s ease;
+}
+
+#btn-non:hover {
+  color: var(--deep-rose);
+}
+
+/* Signature (de la part de) */
+.signature {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* ----- Écran succès ----- */
+.hidden {
+  display: none !important;
+}
+
+#success-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, #fff5f8 0%, #ffd6e0 40%, #ffb3c6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+#success-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff85a2' opacity='0.15'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.success-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.success-content .message {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 11vw, 4.2rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--deep-rose);
+  animation: fade-in 0.8s ease, pulse-soft 3s ease-in-out 0.8s infinite;
+  text-shadow: 0 2px 24px rgba(255, 182, 198, 0.6);
+}
+
+.success-content .submessage {
+  font-size: 1.15rem;
+  color: var(--text-soft);
+  margin-top: 1.25rem;
+  font-weight: 400;
+  animation: fade-in 1s ease 0.3s both;
+}
+
+.success-content .submessage strong {
+  color: var(--deep-rose);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+/* Confettis et cœurs */
+#confetti-container,
+#hearts-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  animation: fall linear forwards;
+}
+
+.heart-float {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.85;
+  animation: float-up linear forwards;
+  filter: drop-shadow(0 2px 4px rgba(201, 24, 74, 0.2));
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float-up {
+  to {
+    transform: translateY(-100vh) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* ----- Bouton musique (fond) ----- */
+.btn-music {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--rose);
+  background: var(--blush);
+  color: var(--deep-rose);
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--shadow-soft);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-music:hover {
+  background: var(--pink);
+  transform: scale(1.08);
+}
+
+.btn-music.playing {
+  background: var(--rose);
+  color: white;
+}

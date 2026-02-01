@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veux-tu être ma Valentine ?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="question-screen">
+      <p class="intro">Pour RANDRIANOMANANA Anjoanina Fanasina 💕</p>
+      <div class="hero-image-wrap">
+        <img id="hero-image" src="images/valentine.png" alt="Be my Valentine" onerror="this.style.display='none'">
+      </div>
+      <h1>Veux-tu être ma Valentine ? ❤️ 🌹</h1>
+      <div class="buttons">
+        <button id="btn-oui" type="button">Oui 💖</button>
+        <button id="btn-non" type="button">Non 😢</button>
+      </div>
+      <p class="signature">De la part de RASOLOFONJATOVO Hasimanarivo Loic</p>
+    </div>
+
+    <div id="success-screen" class="hidden">
+      <div class="success-content">
+        <p class="message">Je te prends 💕</p>
+        <p class="submessage">A : <strong>9h</strong> ❤️ 🌹 💖</p>
+        <div id="confetti-container"></div>
+        <div id="hearts-container"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Musique romantique en fond (boucle) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="audio/romantic.m4a" type="audio/mp4">
+  </audio>
+  <button type="button" id="btn-music" class="btn-music" title="Musique">♫</button>
+  <script src="js/app.js"></script>
+</body>
+</html>
